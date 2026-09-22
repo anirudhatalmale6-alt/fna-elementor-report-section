@@ -1,0 +1,2300 @@
+{
+ "version": "0.4",
+ "title": "Relazione / Report — Futuro Nazionale Albignasego",
+ "type": "container",
+ "content": [
+  {
+   "id": "45aba59",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "container_type": "flex",
+    "content_width": "boxed",
+    "boxed_width": {
+     "unit": "px",
+     "size": 1200,
+     "sizes": []
+    },
+    "flex_direction": "column",
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0",
+     "isLinked": true
+    },
+    "padding": {
+     "unit": "px",
+     "top": "84",
+     "right": "24",
+     "bottom": "84",
+     "left": "24",
+     "isLinked": false
+    },
+    "padding_tablet": {
+     "unit": "px",
+     "top": "64",
+     "right": "24",
+     "bottom": "64",
+     "left": "24",
+     "isLinked": false
+    },
+    "padding_mobile": {
+     "unit": "px",
+     "top": "48",
+     "right": "18",
+     "bottom": "48",
+     "left": "18",
+     "isLinked": false
+    },
+    "background_background": "classic",
+    "background_color": "#FFFFFF",
+    "css_classes": "fna-report"
+   },
+   "elements": [
+    {
+     "id": "7a7bfaa",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<style id=\"fna-report-style\">\n/* ============================================================\n   Relazione / report section  —  scoped to .fna-report\n   Ghost words + pattern live here so the template is\n   self-contained: no Customizer edits, no extra plugin.\n   ============================================================ */\n.fna-report{ --fna-navy:#051632; --fna-blue:#003F84; --fna-yellow:#FDD91C;\n             --fna-ghost:rgba(5,22,50,.06); --fna-ghost-size:clamp(42px,5.4vw,80px); }\n\n/* --- grid cells: the ghost word sits behind, never above, the copy --- */\n.fna-report .fna-cell{ position:relative; overflow:hidden; isolation:isolate; }\n.fna-report .fna-cell > *{ position:relative; z-index:1; }\n.fna-report .fna-cell[class*=\"fna-w-\"]::before{\n  /* .e-con::before is Elementor's overlay box (inset:0) — reset it, then anchor */\n  position:absolute; inset:auto .14em -.06em auto;\n  width:auto; height:auto; border:0; background:none; transition:none;\n  font-family:\"Roboto Slab\",Georgia,\"Times New Roman\",serif;\n  font-weight:700; font-size:var(--fna-ghost-size); line-height:.78;\n  letter-spacing:-.025em; color:var(--fna-ghost);\n  white-space:nowrap; pointer-events:none; -webkit-user-select:none; user-select:none;\n  z-index:0;\n}\n/* ghost scale per row — keeps long words inside narrow cells */\n.fna-report .fna-ghost-s{ --fna-ghost-size:clamp(26px,3.0vw,38px); }\n.fna-report .fna-ghost-m{ --fna-ghost-size:clamp(34px,4.2vw,58px); }\n\n/* one line per cell — this is the only place the words are edited */\n.fna-report .fna-w-1866::before     { content:\"1866\"; }\n.fna-report .fna-w-aree::before     { content:\"AREE\"; }\n.fna-report .fna-w-persone::before  { content:\"PERSONE\"; }\n.fna-report .fna-w-identita::before { content:\"IDENTITÀ\"; }\n.fna-report .fna-w-difesa::before   { content:\"DIFESA\"; }\n.fna-report .fna-w-famiglia::before { content:\"FAMIGLIA\"; }\n.fna-report .fna-w-territorio::before{ content:\"TERRITORIO\"; }\n.fna-report .fna-w-dati::before     { content:\"DATI\"; }\n.fna-report .fna-w-analisi::before  { content:\"ANALISI\"; }\n\n/* --- alternative: dot pattern instead of a word (chart cells) --- */\n.fna-report .fna-pattern{\n  background-image:radial-gradient(rgba(5,22,50,.07) 1px, transparent 1.2px);\n  background-size:15px 15px; background-position:-3px -3px;\n}\n.fna-report .fna-pattern > *{ position:relative; z-index:1; }\n/* kill-switch: add fna-ghost-off to .fna-report to hide every ghost */\n.fna-report.fna-ghost-off .fna-cell::before{ display:none; }\n.fna-report.fna-ghost-off .fna-pattern{ background-image:none; }\n\n/* --- headline rule: green / white / red, drawn, not an image --- */\n.fna-report .fna-head::after{\n  content:\"\"; display:block; position:relative; inset:auto; width:132px; height:5px; margin:18px 0 0; border-radius:3px;\n  background:linear-gradient(90deg,#009246 0 33.33%,#FFFFFF 33.33% 66.66%,#CE2B37 66.66% 100%);\n  box-shadow:0 0 0 1px rgba(5,22,50,.08);\n}\n.fna-report .fna-head.fna-center::after{ margin-left:auto; margin-right:auto; }\n\n/* --- standfirst: keep the lead paragraph to a readable measure --- */\n.fna-report .fna-lead{ max-width:760px; }\n\n/* --- analysis block: thin blue keyline on the left --- */\n.fna-report .fna-block{ padding-left:22px; border-left:3px solid rgba(0,63,132,.18); }\n@media (max-width:767px){ .fna-report .fna-block{ padding-left:16px; } }\n\n/* --- quote --- */\n.fna-report .fna-quote::before{\n  content:\"\\201C\"; display:block; margin:0 0 -12px;\n  position:relative; inset:auto; width:auto; height:auto; border:0; background:none; font-family:\"Roboto Slab\",Georgia,serif;\n  font-size:64px; line-height:.6; color:var(--fna-yellow);\n}\n\n/* --- tidy paragraph rhythm inside the section --- */\n.fna-report .elementor-widget-text-editor p:last-child{ margin-bottom:0; }\n.fna-report .fna-quote p{ margin:0; }\n\n/* --- chart area keeps its shape before the PNG is dropped in --- */\n.fna-report .fna-chart-slot img{ width:100%; height:auto; display:block;\n  max-height:520px; object-fit:contain; }\n.fna-report .fna-chart-slot{ min-height:220px; }\n\n/* --- print / reduced-motion friendliness --- */\n@media print{ .fna-report .fna-cell::before,.fna-report .fna-pattern{ display:none; background-image:none; } }\n</style>"
+     },
+     "elements": [],
+     "isInner": false
+    },
+    {
+     "id": "987cf3a",
+     "elType": "container",
+     "settings": {
+      "flex_direction": "column",
+      "flex_gap": {
+       "unit": "px",
+       "size": 4,
+       "column": "4",
+       "row": "4",
+       "isLinked": true
+      },
+      "padding": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": false
+      },
+      "container_type": "flex",
+      "content_width": "full",
+      "css_classes": "fna-head"
+     },
+     "elements": [
+      {
+       "id": "35956eb",
+       "elType": "widget",
+       "widgetType": "heading",
+       "settings": {
+        "title": "RELAZIONE DEL COMITATO · 2026",
+        "header_size": "h6",
+        "title_color": "#003F84",
+        "typography_typography": "custom",
+        "typography_font_family": "Roboto",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 13,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.4,
+         "sizes": []
+        },
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": 2.4,
+         "sizes": []
+        },
+        "typography_text_transform": "uppercase"
+       },
+       "elements": [],
+       "isInner": false
+      },
+      {
+       "id": "13c7073",
+       "elType": "widget",
+       "widgetType": "heading",
+       "settings": {
+        "title": "Albignasego in numeri:<br>analisi, idee e proposte",
+        "header_size": "h2",
+        "title_color": "#051632",
+        "typography_typography": "custom",
+        "typography_font_family": "Roboto Slab",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 44,
+         "sizes": []
+        },
+        "typography_font_weight": "700",
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.15,
+         "sizes": []
+        },
+        "typography_font_size_tablet": {
+         "unit": "px",
+         "size": 36,
+         "sizes": []
+        },
+        "typography_font_size_mobile": {
+         "unit": "px",
+         "size": 29,
+         "sizes": []
+        },
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": -0.4,
+         "sizes": []
+        },
+        "_margin": {
+         "unit": "px",
+         "top": "6",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": false
+        }
+       },
+       "elements": [],
+       "isInner": false
+      }
+     ],
+     "isInner": true
+    },
+    {
+     "id": "9196209",
+     "elType": "container",
+     "settings": {
+      "content_width": "full",
+      "padding": {
+       "unit": "px",
+       "top": "22",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": false
+      },
+      "container_type": "flex",
+      "css_classes": "fna-lead"
+     },
+     "elements": [
+      {
+       "id": "760181e",
+       "elType": "widget",
+       "widgetType": "text-editor",
+       "settings": {
+        "editor": "<p>Sintesi dell'attività del comitato e lettura dei dati del territorio. Ogni blocco è indipendente: sostituisci il testo, l'icona o il grafico senza toccare la griglia.</p>",
+        "text_color": "#334155",
+        "typography_typography": "custom",
+        "typography_font_family": "Roboto",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 19,
+         "sizes": []
+        },
+        "typography_font_weight": "400",
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.7,
+         "sizes": []
+        },
+        "typography_font_size_tablet": {
+         "unit": "px",
+         "size": 18,
+         "sizes": []
+        },
+        "typography_font_size_mobile": {
+         "unit": "px",
+         "size": 17,
+         "sizes": []
+        }
+       },
+       "elements": [],
+       "isInner": false
+      }
+     ],
+     "isInner": true
+    },
+    {
+     "id": "59e8e7b",
+     "elType": "widget",
+     "widgetType": "spacer",
+     "settings": {
+      "space": {
+       "unit": "px",
+       "size": 46,
+       "sizes": []
+      },
+      "space_mobile": {
+       "unit": "px",
+       "size": 34,
+       "sizes": []
+      }
+     },
+     "elements": [],
+     "isInner": false
+    },
+    {
+     "id": "a50b0af",
+     "elType": "container",
+     "settings": {
+      "flex_direction": "row",
+      "flex_wrap_tablet": "wrap",
+      "flex_align_items": "stretch",
+      "flex_gap": {
+       "unit": "px",
+       "size": 22,
+       "column": "22",
+       "row": "22",
+       "isLinked": true
+      },
+      "flex_gap_tablet": {
+       "unit": "px",
+       "size": 20,
+       "column": "20",
+       "row": "20",
+       "isLinked": true
+      },
+      "flex_gap_mobile": {
+       "unit": "px",
+       "size": 16,
+       "column": "16",
+       "row": "16",
+       "isLinked": true
+      },
+      "flex_direction_mobile": "column",
+      "container_type": "flex",
+      "content_width": "full"
+     },
+     "elements": [
+      {
+       "id": "b00ad09",
+       "elType": "container",
+       "settings": {
+        "width": {
+         "unit": "%",
+         "size": 33.33,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 33.33,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "flex_direction": "column",
+        "content_width": "full",
+        "background_background": "classic",
+        "background_color": "#F4F7FB",
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": false
+        },
+        "border_color": "#E2E8F2",
+        "border_radius": {
+         "unit": "px",
+         "top": "10",
+         "right": "10",
+         "bottom": "10",
+         "left": "10",
+         "isLinked": false
+        },
+        "padding": {
+         "unit": "px",
+         "top": "32",
+         "right": "28",
+         "bottom": "32",
+         "left": "28",
+         "isLinked": false
+        },
+        "padding_tablet": {
+         "unit": "px",
+         "top": "28",
+         "right": "24",
+         "bottom": "28",
+         "left": "24",
+         "isLinked": false
+        },
+        "padding_mobile": {
+         "unit": "px",
+         "top": "24",
+         "right": "20",
+         "bottom": "24",
+         "left": "20",
+         "isLinked": false
+        },
+        "container_type": "flex",
+        "css_classes": "fna-cell fna-ghost-m fna-w-1866"
+       },
+       "elements": [
+        {
+         "id": "b34a472",
+         "elType": "widget",
+         "widgetType": "heading",
+         "settings": {
+          "title": "1.866",
+          "header_size": "h3",
+          "title_color": "#003F84",
+          "typography_typography": "custom",
+          "typography_font_family": "Roboto Slab",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 46,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.05,
+           "sizes": []
+          },
+          "typography_font_size_tablet": {
+           "unit": "px",
+           "size": 38,
+           "sizes": []
+          },
+          "typography_font_size_mobile": {
+           "unit": "px",
+           "size": 36,
+           "sizes": []
+          },
+          "typography_letter_spacing": {
+           "unit": "px",
+           "size": -0.5,
+           "sizes": []
+          }
+         },
+         "elements": [],
+         "isInner": false
+        },
+        {
+         "id": "9e3f6e6",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "settings": {
+          "editor": "<p>ANNO DI FONDAZIONE</p>",
+          "text_color": "#64748B",
+          "typography_typography": "custom",
+          "typography_font_family": "Roboto",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 12,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.5,
+           "sizes": []
+          },
+          "typography_letter_spacing": {
+           "unit": "px",
+           "size": 1.6,
+           "sizes": []
+          },
+          "typography_text_transform": "uppercase",
+          "_margin": {
+           "unit": "px",
+           "top": "4",
+           "right": "0",
+           "bottom": "0",
+           "left": "0",
+           "isLinked": false
+          }
+         },
+         "elements": [],
+         "isInner": false
+        }
+       ],
+       "isInner": true
+      },
+      {
+       "id": "0b3a08e",
+       "elType": "container",
+       "settings": {
+        "width": {
+         "unit": "%",
+         "size": 33.33,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 33.33,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "flex_direction": "column",
+        "content_width": "full",
+        "background_background": "classic",
+        "background_color": "#F4F7FB",
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": false
+        },
+        "border_color": "#E2E8F2",
+        "border_radius": {
+         "unit": "px",
+         "top": "10",
+         "right": "10",
+         "bottom": "10",
+         "left": "10",
+         "isLinked": false
+        },
+        "padding": {
+         "unit": "px",
+         "top": "32",
+         "right": "28",
+         "bottom": "32",
+         "left": "28",
+         "isLinked": false
+        },
+        "padding_tablet": {
+         "unit": "px",
+         "top": "28",
+         "right": "24",
+         "bottom": "28",
+         "left": "24",
+         "isLinked": false
+        },
+        "padding_mobile": {
+         "unit": "px",
+         "top": "24",
+         "right": "20",
+         "bottom": "24",
+         "left": "20",
+         "isLinked": false
+        },
+        "container_type": "flex",
+        "css_classes": "fna-cell fna-ghost-m fna-w-aree"
+       },
+       "elements": [
+        {
+         "id": "81e3887",
+         "elType": "widget",
+         "widgetType": "heading",
+         "settings": {
+          "title": "4",
+          "header_size": "h3",
+          "title_color": "#003F84",
+          "typography_typography": "custom",
+          "typography_font_family": "Roboto Slab",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 46,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.05,
+           "sizes": []
+          },
+          "typography_font_size_tablet": {
+           "unit": "px",
+           "size": 38,
+           "sizes": []
+          },
+          "typography_font_size_mobile": {
+           "unit": "px",
+           "size": 36,
+           "sizes": []
+          },
+          "typography_letter_spacing": {
+           "unit": "px",
+           "size": -0.5,
+           "sizes": []
+          }
+         },
+         "elements": [],
+         "isInner": false
+        },
+        {
+         "id": "04745f5",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "settings": {
+          "editor": "<p>AREE DI INTERVENTO</p>",
+          "text_color": "#64748B",
+          "typography_typography": "custom",
+          "typography_font_family": "Roboto",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 12,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.5,
+           "sizes": []
+          },
+          "typography_letter_spacing": {
+           "unit": "px",
+           "size": 1.6,
+           "sizes": []
+          },
+          "typography_text_transform": "uppercase",
+          "_margin": {
+           "unit": "px",
+           "top": "4",
+           "right": "0",
+           "bottom": "0",
+           "left": "0",
+           "isLinked": false
+          }
+         },
+         "elements": [],
+         "isInner": false
+        }
+       ],
+       "isInner": true
+      },
+      {
+       "id": "afbae07",
+       "elType": "container",
+       "settings": {
+        "width": {
+         "unit": "%",
+         "size": 33.33,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 33.33,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "flex_direction": "column",
+        "content_width": "full",
+        "background_background": "classic",
+        "background_color": "#F4F7FB",
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": false
+        },
+        "border_color": "#E2E8F2",
+        "border_radius": {
+         "unit": "px",
+         "top": "10",
+         "right": "10",
+         "bottom": "10",
+         "left": "10",
+         "isLinked": false
+        },
+        "padding": {
+         "unit": "px",
+         "top": "32",
+         "right": "28",
+         "bottom": "32",
+         "left": "28",
+         "isLinked": false
+        },
+        "padding_tablet": {
+         "unit": "px",
+         "top": "28",
+         "right": "24",
+         "bottom": "28",
+         "left": "24",
+         "isLinked": false
+        },
+        "padding_mobile": {
+         "unit": "px",
+         "top": "24",
+         "right": "20",
+         "bottom": "24",
+         "left": "20",
+         "isLinked": false
+        },
+        "container_type": "flex",
+        "css_classes": "fna-cell fna-ghost-m fna-w-persone"
+       },
+       "elements": [
+        {
+         "id": "4f26d67",
+         "elType": "widget",
+         "widgetType": "heading",
+         "settings": {
+          "title": "27.000",
+          "header_size": "h3",
+          "title_color": "#003F84",
+          "typography_typography": "custom",
+          "typography_font_family": "Roboto Slab",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 46,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.05,
+           "sizes": []
+          },
+          "typography_font_size_tablet": {
+           "unit": "px",
+           "size": 38,
+           "sizes": []
+          },
+          "typography_font_size_mobile": {
+           "unit": "px",
+           "size": 36,
+           "sizes": []
+          },
+          "typography_letter_spacing": {
+           "unit": "px",
+           "size": -0.5,
+           "sizes": []
+          }
+         },
+         "elements": [],
+         "isInner": false
+        },
+        {
+         "id": "c372ea8",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "settings": {
+          "editor": "<p>CITTADINI DEL COMUNE</p>",
+          "text_color": "#64748B",
+          "typography_typography": "custom",
+          "typography_font_family": "Roboto",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 12,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.5,
+           "sizes": []
+          },
+          "typography_letter_spacing": {
+           "unit": "px",
+           "size": 1.6,
+           "sizes": []
+          },
+          "typography_text_transform": "uppercase",
+          "_margin": {
+           "unit": "px",
+           "top": "4",
+           "right": "0",
+           "bottom": "0",
+           "left": "0",
+           "isLinked": false
+          }
+         },
+         "elements": [],
+         "isInner": false
+        }
+       ],
+       "isInner": true
+      }
+     ],
+     "isInner": true
+    },
+    {
+     "id": "523156d",
+     "elType": "widget",
+     "widgetType": "spacer",
+     "settings": {
+      "space": {
+       "unit": "px",
+       "size": 22,
+       "sizes": []
+      },
+      "space_mobile": {
+       "unit": "px",
+       "size": 16,
+       "sizes": []
+      }
+     },
+     "elements": [],
+     "isInner": false
+    },
+    {
+     "id": "243cc48",
+     "elType": "container",
+     "settings": {
+      "flex_direction": "row",
+      "flex_wrap_tablet": "wrap",
+      "flex_align_items": "stretch",
+      "flex_gap": {
+       "unit": "px",
+       "size": 32,
+       "column": "32",
+       "row": "32",
+       "isLinked": true
+      },
+      "flex_gap_tablet": {
+       "unit": "px",
+       "size": 26,
+       "column": "26",
+       "row": "26",
+       "isLinked": true
+      },
+      "flex_gap_mobile": {
+       "unit": "px",
+       "size": 16,
+       "column": "16",
+       "row": "16",
+       "isLinked": true
+      },
+      "flex_direction_mobile": "column",
+      "container_type": "flex",
+      "content_width": "full"
+     },
+     "elements": [
+      {
+       "id": "ea1eea3",
+       "elType": "container",
+       "settings": {
+        "width": {
+         "unit": "%",
+         "size": 58,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "flex_direction": "column",
+        "content_width": "full",
+        "padding": {
+         "unit": "px",
+         "top": "6",
+         "right": "0",
+         "bottom": "0",
+         "left": "0",
+         "isLinked": false
+        },
+        "container_type": "flex"
+       },
+       "elements": [
+        {
+         "id": "64ef1d8",
+         "elType": "container",
+         "settings": {
+          "flex_direction": "column",
+          "padding": {
+           "unit": "px",
+           "top": "0",
+           "right": "0",
+           "bottom": "0",
+           "left": "0",
+           "isLinked": false
+          },
+          "flex_gap": {
+           "unit": "px",
+           "size": 10,
+           "column": "10",
+           "row": "10",
+           "isLinked": true
+          },
+          "container_type": "flex",
+          "content_width": "full",
+          "css_classes": "fna-block"
+         },
+         "elements": [
+          {
+           "id": "127b081",
+           "elType": "widget",
+           "widgetType": "heading",
+           "settings": {
+            "title": "Il quadro attuale",
+            "header_size": "h3",
+            "title_color": "#003F84",
+            "typography_typography": "custom",
+            "typography_font_family": "Roboto Slab",
+            "typography_font_size": {
+             "unit": "px",
+             "size": 24,
+             "sizes": []
+            },
+            "typography_font_weight": "700",
+            "typography_line_height": {
+             "unit": "em",
+             "size": 1.3,
+             "sizes": []
+            }
+           },
+           "elements": [],
+           "isInner": false
+          },
+          {
+           "id": "b0637d5",
+           "elType": "widget",
+           "widgetType": "text-editor",
+           "settings": {
+            "editor": "<p>Apri con il contesto: che cosa è stato osservato sul territorio e in quale periodo. Due o tre frasi, non di più — il dettaglio va nei grafici qui a fianco.</p>",
+            "text_color": "#334155",
+            "typography_typography": "custom",
+            "typography_font_family": "Roboto",
+            "typography_font_size": {
+             "unit": "px",
+             "size": 17,
+             "sizes": []
+            },
+            "typography_font_weight": "400",
+            "typography_line_height": {
+             "unit": "em",
+             "size": 1.75,
+             "sizes": []
+            },
+            "typography_font_size_mobile": {
+             "unit": "px",
+             "size": 16,
+             "sizes": []
+            }
+           },
+           "elements": [],
+           "isInner": false
+          }
+         ],
+         "isInner": true
+        },
+        {
+         "id": "7e9190c",
+         "elType": "widget",
+         "widgetType": "spacer",
+         "settings": {
+          "space": {
+           "unit": "px",
+           "size": 26,
+           "sizes": []
+          },
+          "space_mobile": {
+           "unit": "px",
+           "size": 20,
+           "sizes": []
+          }
+         },
+         "elements": [],
+         "isInner": false
+        },
+        {
+         "id": "9b2c865",
+         "elType": "container",
+         "settings": {
+          "flex_direction": "column",
+          "padding": {
+           "unit": "px",
+           "top": "0",
+           "right": "0",
+           "bottom": "0",
+           "left": "0",
+           "isLinked": false
+          },
+          "flex_gap": {
+           "unit": "px",
+           "size": 10,
+           "column": "10",
+           "row": "10",
+           "isLinked": true
+          },
+          "container_type": "flex",
+          "content_width": "full",
+          "css_classes": "fna-block"
+         },
+         "elements": [
+          {
+           "id": "b36343a",
+           "elType": "widget",
+           "widgetType": "heading",
+           "settings": {
+            "title": "Le priorità per il territorio",
+            "header_size": "h3",
+            "title_color": "#003F84",
+            "typography_typography": "custom",
+            "typography_font_family": "Roboto Slab",
+            "typography_font_size": {
+             "unit": "px",
+             "size": 24,
+             "sizes": []
+            },
+            "typography_font_weight": "700",
+            "typography_line_height": {
+             "unit": "em",
+             "size": 1.3,
+             "sizes": []
+            }
+           },
+           "elements": [],
+           "isInner": false
+          },
+          {
+           "id": "a04acbb",
+           "elType": "widget",
+           "widgetType": "text-editor",
+           "settings": {
+            "editor": "<p>Secondo blocco di analisi. Puoi duplicarlo (tasto destro sul contenitore → Duplica) tutte le volte che serve: eredita spaziatura, keyline e tipografia.</p>",
+            "text_color": "#334155",
+            "typography_typography": "custom",
+            "typography_font_family": "Roboto",
+            "typography_font_size": {
+             "unit": "px",
+             "size": 17,
+             "sizes": []
+            },
+            "typography_font_weight": "400",
+            "typography_line_height": {
+             "unit": "em",
+             "size": 1.75,
+             "sizes": []
+            },
+            "typography_font_size_mobile": {
+             "unit": "px",
+             "size": 16,
+             "sizes": []
+            }
+           },
+           "elements": [],
+           "isInner": false
+          }
+         ],
+         "isInner": true
+        }
+       ],
+       "isInner": true
+      },
+      {
+       "id": "f7a6e85",
+       "elType": "container",
+       "settings": {
+        "width": {
+         "unit": "%",
+         "size": 42,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "flex_direction": "column",
+        "content_width": "full",
+        "background_background": "classic",
+        "background_color": "#F4F7FB",
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": false
+        },
+        "border_color": "#E2E8F2",
+        "border_radius": {
+         "unit": "px",
+         "top": "10",
+         "right": "10",
+         "bottom": "10",
+         "left": "10",
+         "isLinked": false
+        },
+        "padding": {
+         "unit": "px",
+         "top": "32",
+         "right": "28",
+         "bottom": "32",
+         "left": "28",
+         "isLinked": false
+        },
+        "padding_tablet": {
+         "unit": "px",
+         "top": "28",
+         "right": "24",
+         "bottom": "28",
+         "left": "24",
+         "isLinked": false
+        },
+        "padding_mobile": {
+         "unit": "px",
+         "top": "24",
+         "right": "20",
+         "bottom": "24",
+         "left": "20",
+         "isLinked": false
+        },
+        "container_type": "flex",
+        "css_classes": "fna-cell fna-pattern"
+       },
+       "elements": [
+        {
+         "id": "fa81f12",
+         "elType": "widget",
+         "widgetType": "heading",
+         "settings": {
+          "title": "Adesioni per quartiere",
+          "header_size": "h4",
+          "title_color": "#051632",
+          "typography_typography": "custom",
+          "typography_font_family": "Roboto Slab",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 19,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.35,
+           "sizes": []
+          }
+         },
+         "elements": [],
+         "isInner": false
+        },
+        {
+         "id": "472bb14",
+         "elType": "widget",
+         "widgetType": "spacer",
+         "settings": {
+          "space": {
+           "unit": "px",
+           "size": 14,
+           "sizes": []
+          }
+         },
+         "elements": [],
+         "isInner": false
+        },
+        {
+         "id": "cd71419",
+         "elType": "widget",
+         "widgetType": "image",
+         "settings": {
+          "image": {
+           "url": "https://futuronazionalealbignasego.it/wp-content/plugins/elementor/assets/images/placeholder.png",
+           "id": "",
+           "alt": "",
+           "source": "library"
+          },
+          "image_size": "full",
+          "align": "center",
+          "width": {
+           "unit": "%",
+           "size": 100,
+           "sizes": []
+          },
+          "image_border_radius": {
+           "unit": "px",
+           "top": "6",
+           "right": "6",
+           "bottom": "6",
+           "left": "6",
+           "isLinked": false
+          },
+          "caption_source": "custom",
+          "caption": "Fig. 1 — Grafico laterale. PNG consigliato 840 × 640 px.",
+          "text_color": "#64748B",
+          "caption_typography_typography": "custom",
+          "caption_typography_font_family": "Roboto",
+          "caption_typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "caption_typography_line_height": {
+           "unit": "em",
+           "size": 1.5,
+           "sizes": []
+          },
+          "_css_classes": "fna-chart-slot"
+         },
+         "elements": [],
+         "isInner": false
+        }
+       ],
+       "isInner": true
+      }
+     ],
+     "isInner": true
+    },
+    {
+     "id": "b9e8c99",
+     "elType": "widget",
+     "widgetType": "spacer",
+     "settings": {
+      "space": {
+       "unit": "px",
+       "size": 34,
+       "sizes": []
+      },
+      "space_mobile": {
+       "unit": "px",
+       "size": 26,
+       "sizes": []
+      }
+     },
+     "elements": [],
+     "isInner": false
+    },
+    {
+     "id": "526b8a6",
+     "elType": "container",
+     "settings": {
+      "flex_direction": "row",
+      "flex_wrap_tablet": "wrap",
+      "flex_align_items": "stretch",
+      "flex_gap": {
+       "unit": "px",
+       "size": 20,
+       "column": "20",
+       "row": "20",
+       "isLinked": true
+      },
+      "flex_gap_tablet": {
+       "unit": "px",
+       "size": 20,
+       "column": "20",
+       "row": "20",
+       "isLinked": true
+      },
+      "flex_gap_mobile": {
+       "unit": "px",
+       "size": 16,
+       "column": "16",
+       "row": "16",
+       "isLinked": true
+      },
+      "flex_direction_mobile": "column",
+      "container_type": "flex",
+      "content_width": "full"
+     },
+     "elements": [
+      {
+       "id": "d0bbe27",
+       "elType": "container",
+       "settings": {
+        "width": {
+         "unit": "%",
+         "size": 25,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 48,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "flex_direction": "column",
+        "content_width": "full",
+        "background_background": "classic",
+        "background_color": "#F4F7FB",
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": false
+        },
+        "border_color": "#E2E8F2",
+        "border_radius": {
+         "unit": "px",
+         "top": "10",
+         "right": "10",
+         "bottom": "10",
+         "left": "10",
+         "isLinked": false
+        },
+        "padding": {
+         "unit": "px",
+         "top": "32",
+         "right": "28",
+         "bottom": "32",
+         "left": "28",
+         "isLinked": false
+        },
+        "padding_tablet": {
+         "unit": "px",
+         "top": "28",
+         "right": "24",
+         "bottom": "28",
+         "left": "24",
+         "isLinked": false
+        },
+        "padding_mobile": {
+         "unit": "px",
+         "top": "24",
+         "right": "20",
+         "bottom": "24",
+         "left": "20",
+         "isLinked": false
+        },
+        "container_type": "flex",
+        "css_classes": "fna-cell fna-ghost-s fna-w-identita"
+       },
+       "elements": [
+        {
+         "id": "1cb6870",
+         "elType": "widget",
+         "widgetType": "icon-box",
+         "settings": {
+          "selected_icon": {
+           "value": "fas fa-flag",
+           "library": "fa-solid"
+          },
+          "view": "default",
+          "title_text": "IDENTITÀ",
+          "description_text": "Valorizziamo la nostra storia, la cultura e le tradizioni.",
+          "position": "top",
+          "text_align": "left",
+          "primary_color": "#003F84",
+          "icon_primary_color": "#003F84",
+          "icon_size": {
+           "unit": "px",
+           "size": 30,
+           "sizes": []
+          },
+          "icon_space": {
+           "unit": "px",
+           "size": 14,
+           "sizes": []
+          },
+          "title_color": "#051632",
+          "description_color": "#334155",
+          "title_typography_typography": "custom",
+          "title_typography_font_family": "Roboto Slab",
+          "title_typography_font_size": {
+           "unit": "px",
+           "size": 18,
+           "sizes": []
+          },
+          "title_typography_font_weight": "700",
+          "title_typography_letter_spacing": {
+           "unit": "px",
+           "size": 0.2,
+           "sizes": []
+          },
+          "description_typography_typography": "custom",
+          "description_typography_font_family": "Roboto",
+          "description_typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "description_typography_line_height": {
+           "unit": "em",
+           "size": 1.65,
+           "sizes": []
+          }
+         },
+         "elements": [],
+         "isInner": false
+        }
+       ],
+       "isInner": true
+      },
+      {
+       "id": "9a071bb",
+       "elType": "container",
+       "settings": {
+        "width": {
+         "unit": "%",
+         "size": 25,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 48,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "flex_direction": "column",
+        "content_width": "full",
+        "background_background": "classic",
+        "background_color": "#F4F7FB",
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": false
+        },
+        "border_color": "#E2E8F2",
+        "border_radius": {
+         "unit": "px",
+         "top": "10",
+         "right": "10",
+         "bottom": "10",
+         "left": "10",
+         "isLinked": false
+        },
+        "padding": {
+         "unit": "px",
+         "top": "32",
+         "right": "28",
+         "bottom": "32",
+         "left": "28",
+         "isLinked": false
+        },
+        "padding_tablet": {
+         "unit": "px",
+         "top": "28",
+         "right": "24",
+         "bottom": "28",
+         "left": "24",
+         "isLinked": false
+        },
+        "padding_mobile": {
+         "unit": "px",
+         "top": "24",
+         "right": "20",
+         "bottom": "24",
+         "left": "20",
+         "isLinked": false
+        },
+        "container_type": "flex",
+        "css_classes": "fna-cell fna-ghost-s fna-w-difesa"
+       },
+       "elements": [
+        {
+         "id": "c8e44a3",
+         "elType": "widget",
+         "widgetType": "icon-box",
+         "settings": {
+          "selected_icon": {
+           "value": "fas fa-shield-alt",
+           "library": "fa-solid"
+          },
+          "view": "default",
+          "title_text": "DIFESA",
+          "description_text": "Sicurezza, sovranità e interesse nazionale al centro.",
+          "position": "top",
+          "text_align": "left",
+          "primary_color": "#003F84",
+          "icon_primary_color": "#003F84",
+          "icon_size": {
+           "unit": "px",
+           "size": 30,
+           "sizes": []
+          },
+          "icon_space": {
+           "unit": "px",
+           "size": 14,
+           "sizes": []
+          },
+          "title_color": "#051632",
+          "description_color": "#334155",
+          "title_typography_typography": "custom",
+          "title_typography_font_family": "Roboto Slab",
+          "title_typography_font_size": {
+           "unit": "px",
+           "size": 18,
+           "sizes": []
+          },
+          "title_typography_font_weight": "700",
+          "title_typography_letter_spacing": {
+           "unit": "px",
+           "size": 0.2,
+           "sizes": []
+          },
+          "description_typography_typography": "custom",
+          "description_typography_font_family": "Roboto",
+          "description_typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "description_typography_line_height": {
+           "unit": "em",
+           "size": 1.65,
+           "sizes": []
+          }
+         },
+         "elements": [],
+         "isInner": false
+        }
+       ],
+       "isInner": true
+      },
+      {
+       "id": "dd5e6cd",
+       "elType": "container",
+       "settings": {
+        "width": {
+         "unit": "%",
+         "size": 25,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 48,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "flex_direction": "column",
+        "content_width": "full",
+        "background_background": "classic",
+        "background_color": "#F4F7FB",
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": false
+        },
+        "border_color": "#E2E8F2",
+        "border_radius": {
+         "unit": "px",
+         "top": "10",
+         "right": "10",
+         "bottom": "10",
+         "left": "10",
+         "isLinked": false
+        },
+        "padding": {
+         "unit": "px",
+         "top": "32",
+         "right": "28",
+         "bottom": "32",
+         "left": "28",
+         "isLinked": false
+        },
+        "padding_tablet": {
+         "unit": "px",
+         "top": "28",
+         "right": "24",
+         "bottom": "28",
+         "left": "24",
+         "isLinked": false
+        },
+        "padding_mobile": {
+         "unit": "px",
+         "top": "24",
+         "right": "20",
+         "bottom": "24",
+         "left": "20",
+         "isLinked": false
+        },
+        "container_type": "flex",
+        "css_classes": "fna-cell fna-ghost-s fna-w-famiglia"
+       },
+       "elements": [
+        {
+         "id": "562ab39",
+         "elType": "widget",
+         "widgetType": "icon-box",
+         "settings": {
+          "selected_icon": {
+           "value": "fas fa-users",
+           "library": "fa-solid"
+          },
+          "view": "default",
+          "title_text": "FAMIGLIA",
+          "description_text": "Sostegno alle famiglie e ai più giovani.",
+          "position": "top",
+          "text_align": "left",
+          "primary_color": "#003F84",
+          "icon_primary_color": "#003F84",
+          "icon_size": {
+           "unit": "px",
+           "size": 30,
+           "sizes": []
+          },
+          "icon_space": {
+           "unit": "px",
+           "size": 14,
+           "sizes": []
+          },
+          "title_color": "#051632",
+          "description_color": "#334155",
+          "title_typography_typography": "custom",
+          "title_typography_font_family": "Roboto Slab",
+          "title_typography_font_size": {
+           "unit": "px",
+           "size": 18,
+           "sizes": []
+          },
+          "title_typography_font_weight": "700",
+          "title_typography_letter_spacing": {
+           "unit": "px",
+           "size": 0.2,
+           "sizes": []
+          },
+          "description_typography_typography": "custom",
+          "description_typography_font_family": "Roboto",
+          "description_typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "description_typography_line_height": {
+           "unit": "em",
+           "size": 1.65,
+           "sizes": []
+          }
+         },
+         "elements": [],
+         "isInner": false
+        }
+       ],
+       "isInner": true
+      },
+      {
+       "id": "e546081",
+       "elType": "container",
+       "settings": {
+        "width": {
+         "unit": "%",
+         "size": 25,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 48,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "flex_direction": "column",
+        "content_width": "full",
+        "background_background": "classic",
+        "background_color": "#F4F7FB",
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": false
+        },
+        "border_color": "#E2E8F2",
+        "border_radius": {
+         "unit": "px",
+         "top": "10",
+         "right": "10",
+         "bottom": "10",
+         "left": "10",
+         "isLinked": false
+        },
+        "padding": {
+         "unit": "px",
+         "top": "32",
+         "right": "28",
+         "bottom": "32",
+         "left": "28",
+         "isLinked": false
+        },
+        "padding_tablet": {
+         "unit": "px",
+         "top": "28",
+         "right": "24",
+         "bottom": "28",
+         "left": "24",
+         "isLinked": false
+        },
+        "padding_mobile": {
+         "unit": "px",
+         "top": "24",
+         "right": "20",
+         "bottom": "24",
+         "left": "20",
+         "isLinked": false
+        },
+        "container_type": "flex",
+        "css_classes": "fna-cell fna-ghost-s fna-w-territorio"
+       },
+       "elements": [
+        {
+         "id": "89c2474",
+         "elType": "widget",
+         "widgetType": "icon-box",
+         "settings": {
+          "selected_icon": {
+           "value": "fas fa-map-marker-alt",
+           "library": "fa-solid"
+          },
+          "view": "default",
+          "title_text": "TERRITORIO",
+          "description_text": "Ascolto, iniziative locali e soluzioni concrete.",
+          "position": "top",
+          "text_align": "left",
+          "primary_color": "#003F84",
+          "icon_primary_color": "#003F84",
+          "icon_size": {
+           "unit": "px",
+           "size": 30,
+           "sizes": []
+          },
+          "icon_space": {
+           "unit": "px",
+           "size": 14,
+           "sizes": []
+          },
+          "title_color": "#051632",
+          "description_color": "#334155",
+          "title_typography_typography": "custom",
+          "title_typography_font_family": "Roboto Slab",
+          "title_typography_font_size": {
+           "unit": "px",
+           "size": 18,
+           "sizes": []
+          },
+          "title_typography_font_weight": "700",
+          "title_typography_letter_spacing": {
+           "unit": "px",
+           "size": 0.2,
+           "sizes": []
+          },
+          "description_typography_typography": "custom",
+          "description_typography_font_family": "Roboto",
+          "description_typography_font_size": {
+           "unit": "px",
+           "size": 15,
+           "sizes": []
+          },
+          "description_typography_line_height": {
+           "unit": "em",
+           "size": 1.65,
+           "sizes": []
+          }
+         },
+         "elements": [],
+         "isInner": false
+        }
+       ],
+       "isInner": true
+      }
+     ],
+     "isInner": true
+    },
+    {
+     "id": "24ae797",
+     "elType": "widget",
+     "widgetType": "spacer",
+     "settings": {
+      "space": {
+       "unit": "px",
+       "size": 34,
+       "sizes": []
+      },
+      "space_mobile": {
+       "unit": "px",
+       "size": 26,
+       "sizes": []
+      }
+     },
+     "elements": [],
+     "isInner": false
+    },
+    {
+     "id": "b2d81ab",
+     "elType": "container",
+     "settings": {
+      "flex_direction": "row",
+      "flex_wrap_tablet": "wrap",
+      "flex_align_items": "stretch",
+      "flex_gap": {
+       "unit": "px",
+       "size": 20,
+       "column": "20",
+       "row": "20",
+       "isLinked": true
+      },
+      "flex_gap_tablet": {
+       "unit": "px",
+       "size": 20,
+       "column": "20",
+       "row": "20",
+       "isLinked": true
+      },
+      "flex_gap_mobile": {
+       "unit": "px",
+       "size": 16,
+       "column": "16",
+       "row": "16",
+       "isLinked": true
+      },
+      "flex_direction_mobile": "column",
+      "container_type": "flex",
+      "content_width": "full"
+     },
+     "elements": [
+      {
+       "id": "6237427",
+       "elType": "container",
+       "settings": {
+        "width": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "flex_direction": "column",
+        "content_width": "full",
+        "background_background": "classic",
+        "background_color": "#F4F7FB",
+        "border_border": "solid",
+        "border_width": {
+         "unit": "px",
+         "top": "1",
+         "right": "1",
+         "bottom": "1",
+         "left": "1",
+         "isLinked": false
+        },
+        "border_color": "#E2E8F2",
+        "border_radius": {
+         "unit": "px",
+         "top": "10",
+         "right": "10",
+         "bottom": "10",
+         "left": "10",
+         "isLinked": false
+        },
+        "padding": {
+         "unit": "px",
+         "top": "32",
+         "right": "28",
+         "bottom": "32",
+         "left": "28",
+         "isLinked": false
+        },
+        "padding_tablet": {
+         "unit": "px",
+         "top": "28",
+         "right": "24",
+         "bottom": "28",
+         "left": "24",
+         "isLinked": false
+        },
+        "padding_mobile": {
+         "unit": "px",
+         "top": "24",
+         "right": "20",
+         "bottom": "24",
+         "left": "20",
+         "isLinked": false
+        },
+        "container_type": "flex",
+        "css_classes": "fna-cell fna-w-dati"
+       },
+       "elements": [
+        {
+         "id": "d1310ec",
+         "elType": "widget",
+         "widgetType": "heading",
+         "settings": {
+          "title": "ANDAMENTO 2024 – 2026",
+          "header_size": "h6",
+          "title_color": "#003F84",
+          "typography_typography": "custom",
+          "typography_font_family": "Roboto",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 12,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.4,
+           "sizes": []
+          },
+          "typography_letter_spacing": {
+           "unit": "px",
+           "size": 2.2,
+           "sizes": []
+          },
+          "typography_text_transform": "uppercase"
+         },
+         "elements": [],
+         "isInner": false
+        },
+        {
+         "id": "ea178da",
+         "elType": "widget",
+         "widgetType": "heading",
+         "settings": {
+          "title": "Il dato principale della relazione",
+          "header_size": "h3",
+          "title_color": "#051632",
+          "typography_typography": "custom",
+          "typography_font_family": "Roboto Slab",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 26,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.25,
+           "sizes": []
+          },
+          "typography_font_size_mobile": {
+           "unit": "px",
+           "size": 22,
+           "sizes": []
+          },
+          "_margin": {
+           "unit": "px",
+           "top": "4",
+           "right": "0",
+           "bottom": "0",
+           "left": "0",
+           "isLinked": false
+          }
+         },
+         "elements": [],
+         "isInner": false
+        },
+        {
+         "id": "0c08391",
+         "elType": "widget",
+         "widgetType": "spacer",
+         "settings": {
+          "space": {
+           "unit": "px",
+           "size": 18,
+           "sizes": []
+          }
+         },
+         "elements": [],
+         "isInner": false
+        },
+        {
+         "id": "2d114d7",
+         "elType": "widget",
+         "widgetType": "image",
+         "settings": {
+          "image": {
+           "url": "https://futuronazionalealbignasego.it/wp-content/plugins/elementor/assets/images/placeholder.png",
+           "id": "",
+           "alt": "",
+           "source": "library"
+          },
+          "image_size": "full",
+          "align": "center",
+          "width": {
+           "unit": "%",
+           "size": 100,
+           "sizes": []
+          },
+          "image_border_radius": {
+           "unit": "px",
+           "top": "6",
+           "right": "6",
+           "bottom": "6",
+           "left": "6",
+           "isLinked": false
+          },
+          "caption_source": "custom",
+          "caption": "Fig. 2 — Grafico a tutta larghezza. PNG consigliato 1600 × 600 px.",
+          "text_color": "#64748B",
+          "caption_typography_typography": "custom",
+          "caption_typography_font_family": "Roboto",
+          "caption_typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "caption_typography_line_height": {
+           "unit": "em",
+           "size": 1.5,
+           "sizes": []
+          },
+          "_css_classes": "fna-chart-slot"
+         },
+         "elements": [],
+         "isInner": false
+        },
+        {
+         "id": "79263a2",
+         "elType": "widget",
+         "widgetType": "spacer",
+         "settings": {
+          "space": {
+           "unit": "px",
+           "size": 6,
+           "sizes": []
+          }
+         },
+         "elements": [],
+         "isInner": false
+        },
+        {
+         "id": "47b9ce9",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "settings": {
+          "editor": "<p>Fonte: elaborazione del comitato su dati comunali.</p>",
+          "text_color": "#64748B",
+          "typography_typography": "custom",
+          "typography_font_family": "Roboto",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "typography_font_weight": "400",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.5,
+           "sizes": []
+          },
+          "typography_font_style": "italic"
+         },
+         "elements": [],
+         "isInner": false
+        }
+       ],
+       "isInner": true
+      }
+     ],
+     "isInner": true
+    },
+    {
+     "id": "cb64181",
+     "elType": "widget",
+     "widgetType": "spacer",
+     "settings": {
+      "space": {
+       "unit": "px",
+       "size": 34,
+       "sizes": []
+      },
+      "space_mobile": {
+       "unit": "px",
+       "size": 26,
+       "sizes": []
+      }
+     },
+     "elements": [],
+     "isInner": false
+    },
+    {
+     "id": "4c2098f",
+     "elType": "container",
+     "settings": {
+      "flex_direction": "row",
+      "flex_wrap_tablet": "wrap",
+      "flex_align_items": "stretch",
+      "flex_gap": {
+       "unit": "px",
+       "size": 20,
+       "column": "20",
+       "row": "20",
+       "isLinked": true
+      },
+      "flex_gap_tablet": {
+       "unit": "px",
+       "size": 20,
+       "column": "20",
+       "row": "20",
+       "isLinked": true
+      },
+      "flex_gap_mobile": {
+       "unit": "px",
+       "size": 16,
+       "column": "16",
+       "row": "16",
+       "isLinked": true
+      },
+      "flex_direction_mobile": "column",
+      "container_type": "flex",
+      "content_width": "full"
+     },
+     "elements": [
+      {
+       "id": "49824b3",
+       "elType": "container",
+       "settings": {
+        "width": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "width_tablet": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "width_mobile": {
+         "unit": "%",
+         "size": 100,
+         "sizes": []
+        },
+        "flex_direction": "column",
+        "content_width": "full",
+        "flex_gap": {
+         "unit": "px",
+         "size": 0,
+         "column": "0",
+         "row": "0",
+         "isLinked": true
+        },
+        "background_background": "classic",
+        "background_color": "#051632",
+        "border_radius": {
+         "unit": "px",
+         "top": "10",
+         "right": "10",
+         "bottom": "10",
+         "left": "10",
+         "isLinked": false
+        },
+        "padding": {
+         "unit": "px",
+         "top": "42",
+         "right": "46",
+         "bottom": "42",
+         "left": "46",
+         "isLinked": false
+        },
+        "padding_tablet": {
+         "unit": "px",
+         "top": "34",
+         "right": "32",
+         "bottom": "34",
+         "left": "32",
+         "isLinked": false
+        },
+        "padding_mobile": {
+         "unit": "px",
+         "top": "28",
+         "right": "22",
+         "bottom": "28",
+         "left": "22",
+         "isLinked": false
+        },
+        "container_type": "flex",
+        "css_classes": "fna-cell fna-quote"
+       },
+       "elements": [
+        {
+         "id": "67fc7de",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "settings": {
+          "editor": "<p>Se ognuno fa qualcosa, allora insieme possiamo fare molto.</p>",
+          "text_color": "#FFFFFF",
+          "typography_typography": "custom",
+          "typography_font_family": "Roboto Slab",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 27,
+           "sizes": []
+          },
+          "typography_font_weight": "400",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.45,
+           "sizes": []
+          },
+          "typography_font_size_tablet": {
+           "unit": "px",
+           "size": 24,
+           "sizes": []
+          },
+          "typography_font_size_mobile": {
+           "unit": "px",
+           "size": 21,
+           "sizes": []
+          },
+          "typography_font_style": "italic"
+         },
+         "elements": [],
+         "isInner": false
+        },
+        {
+         "id": "d271916",
+         "elType": "widget",
+         "widgetType": "text-editor",
+         "settings": {
+          "editor": "<p>— Inserisci qui l'attribuzione</p>",
+          "text_color": "#FDD91C",
+          "typography_typography": "custom",
+          "typography_font_family": "Roboto",
+          "typography_font_size": {
+           "unit": "px",
+           "size": 13,
+           "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+           "unit": "em",
+           "size": 1.5,
+           "sizes": []
+          },
+          "typography_letter_spacing": {
+           "unit": "px",
+           "size": 1.8,
+           "sizes": []
+          },
+          "typography_text_transform": "uppercase",
+          "_margin": {
+           "unit": "px",
+           "top": "16",
+           "right": "0",
+           "bottom": "0",
+           "left": "0",
+           "isLinked": false
+          }
+         },
+         "elements": [],
+         "isInner": false
+        }
+       ],
+       "isInner": true
+      }
+     ],
+     "isInner": true
+    },
+    {
+     "id": "85f35e8",
+     "elType": "widget",
+     "widgetType": "spacer",
+     "settings": {
+      "space": {
+       "unit": "px",
+       "size": 26,
+       "sizes": []
+      },
+      "space_mobile": {
+       "unit": "px",
+       "size": 20,
+       "sizes": []
+      }
+     },
+     "elements": [],
+     "isInner": false
+    },
+    {
+     "id": "a52d93e",
+     "elType": "container",
+     "settings": {
+      "border_border": "solid",
+      "border_width": {
+       "unit": "px",
+       "top": "1",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": false
+      },
+      "border_color": "#E2E8F2",
+      "padding": {
+       "unit": "px",
+       "top": "20",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": false
+      },
+      "container_type": "flex",
+      "content_width": "full"
+     },
+     "elements": [
+      {
+       "id": "aaf3b46",
+       "elType": "widget",
+       "widgetType": "text-editor",
+       "settings": {
+        "editor": "<p><strong>Nota metodologica.</strong> Periodo di riferimento, fonte dei dati ed eventuali limiti. Riga finale della relazione.</p>",
+        "text_color": "#64748B",
+        "typography_typography": "custom",
+        "typography_font_family": "Roboto",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 14,
+         "sizes": []
+        },
+        "typography_font_weight": "400",
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.65,
+         "sizes": []
+        }
+       },
+       "elements": [],
+       "isInner": false
+      }
+     ],
+     "isInner": true
+    }
+   ]
+  }
+ ],
+ "page_settings": []
+}

@@ -1,0 +1,88 @@
+<!doctype html>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;background:#fff;font-family:Roboto,sans-serif}
+  .fig{width:1600px;background:#fff;padding:28px 32px 20px;box-sizing:border-box}
+  .lbl{font:400 20px Roboto;fill:#64748B}
+  .lbl-b{font:700 20px Roboto;fill:#334155}
+  .val{font:700 26px "Roboto Slab";fill:#00285A}
+  .grid{stroke:#E6ECF4;stroke-width:1}
+  .axis{stroke:#CBD5E4;stroke-width:1}
+</style>
+
+<!-- ===================== FIG 1 — bars ===================== -->
+<div class="fig" id="fig1">
+<svg width="1536" height="560" viewBox="0 0 1536 560" font-family="Roboto">
+  <g id="g1"></g>
+</svg>
+</div>
+
+<!-- ===================== FIG 2 — line ===================== -->
+<div class="fig" id="fig2">
+<svg width="1536" height="520" viewBox="0 0 1536 520" font-family="Roboto">
+  <g id="g2"></g>
+</svg>
+</div>
+
+<script>
+const BLUE = '#003F84', NAVY = '#00285A';
+const NS = 'http://www.w3.org/2000/svg';
+function el(t, a, p){const n=document.createElementNS(NS,t);for(const k in a)n.setAttribute(k,a[k]);if(p)p.appendChild(n);return n}
+function txt(s,a,p){const n=el('text',a,p);n.textContent=s;return n}
+
+/* ---------- FIG 1: single-series bars ---------- */
+(function(){
+  const g = document.getElementById('g1');
+  const data = [['Ferri',186],['San Tommaso',154],['Carpanedo',131],['Mandriola',118],['San Giacomo',96],['Centro',74]];
+  const L=70, R=1500, T=40, B=480;
+  const max = 200, ticks=[0,50,100,150,200];
+  ticks.forEach(t=>{
+    const y = B - (t/max)*(B-T);
+    el('line',{x1:L,x2:R,y1:y,y2:y,class:'grid'},g);
+    txt(t,{x:L-16,y:y+7,'text-anchor':'end',class:'lbl'},g);
+  });
+  el('line',{x1:L,x2:R,y1:B,y2:B,class:'axis'},g);
+  const n=data.length, slot=(R-L)/n, bw=Math.min(118, slot*0.52);
+  const top = Math.max(...data.map(d=>d[1]));
+  data.forEach(([name,v],i)=>{
+    const x = L + slot*i + (slot-bw)/2;
+    const h = (v/max)*(B-T);
+    el('rect',{x, y:B-h, width:bw, height:h, rx:4, ry:4, fill:BLUE},g);
+    el('rect',{x, y:B-6, width:bw, height:6, fill:BLUE},g);   // square the baseline end
+    txt(name,{x:x+bw/2, y:B+34, 'text-anchor':'middle', class:'lbl'},g);
+    if(v===top) txt(v,{x:x+bw/2, y:B-h-16, 'text-anchor':'middle', class:'val'},g);
+  });
+  txt('adesioni',{x:L, y:T-14, 'text-anchor':'start', class:'lbl'},g);
+})();
+
+/* ---------- FIG 2: single-series line ---------- */
+(function(){
+  const g = document.getElementById('g2');
+  const data = [['I 24',42],['II 24',55],['III 24',61],['IV 24',78],['I 25',96],['II 25',112],
+                ['III 25',131],['IV 25',158],['I 26',186],['II 26',214]];
+  const L=80, R=1480, T=40, B=430;
+  const max=250, ticks=[0,50,100,150,200,250];
+  ticks.forEach(t=>{
+    const y = B - (t/max)*(B-T);
+    el('line',{x1:L,x2:R,y1:y,y2:y,class:'grid'},g);
+    txt(t,{x:L-16,y:y+7,'text-anchor':'end',class:'lbl'},g);
+  });
+  el('line',{x1:L,x2:R,y1:B,y2:B,class:'axis'},g);
+  const step=(R-L)/(data.length-1);
+  const pts = data.map(([,v],i)=>[L+step*i, B-(v/max)*(B-T)]);
+  // soft area under the line
+  el('path',{d:`M${pts[0][0]},${B} `+pts.map(p=>`L${p[0]},${p[1]}`).join(' ')+` L${pts.at(-1)[0]},${B} Z`,
+             fill:BLUE, opacity:.07},g);
+  el('path',{d:'M'+pts.map(p=>p.join(',')).join(' L'), fill:'none', stroke:BLUE,
+             'stroke-width':3, 'stroke-linejoin':'round', 'stroke-linecap':'round'},g);
+  data.forEach(([name],i)=>txt(name,{x:pts[i][0], y:B+34, 'text-anchor':'middle', class:'lbl'},g));
+  // endpoints only
+  [0, pts.length-1].forEach(i=>{
+    el('circle',{cx:pts[i][0], cy:pts[i][1], r:9, fill:'#fff', stroke:BLUE, 'stroke-width':3},g);
+  });
+  const last = pts.at(-1);
+  txt(data.at(-1)[1],{x:last[0]-8, y:last[1]-22, 'text-anchor':'end', class:'val'},g);
+  txt('tesserati',{x:L, y:T-14, 'text-anchor':'start', class:'lbl'},g);
+})();
+</script>
